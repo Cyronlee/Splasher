@@ -1,0 +1,16 @@
+.panel {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  right: 0px;
+  background: white;
+}
+
+.options {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+Button {
+  margin-right: 10px !important;
+}
