@@ -2,7 +2,7 @@
 
 Randomly display pictures from unsplash
 
-[Online preview](cyronlee.github.io/splasher/index.html)
+[Online preview](https://cyronlee.github.io/Splasher/index.html)
 
 ### `yarn start`
 
