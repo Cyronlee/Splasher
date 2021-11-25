@@ -1,8 +1,10 @@
 # Splasher
 
-Randomly display pictures from unsplash
+Randomly display pictures from unsplash.
 
 [Online preview](https://cyronlee.github.io/Splasher/index.html)
+
+Use `Shift-Command-F (Mac)` or `F11 (Win)` to get better experience in Fullscreen.
 
 ### `yarn start`
 
