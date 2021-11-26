@@ -6,6 +6,12 @@ Randomly display pictures from unsplash.
 
 Use `Shift-Command-F (Mac)` or `F11 (Win)` to get better experience in Fullscreen.
 
+Features
+- Preload pictures
+- Customize resolution & interval
+
+## Develop
+
 ### `yarn start`
 
 Runs the app in the development mode.\
