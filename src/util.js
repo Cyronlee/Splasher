@@ -1,9 +1,5 @@
 function loadImgUrl() {
-  let resolution = localStorage.getItem("resolution");
-  if (resolution === null) {
-    resolution = "1600x900";
-  }
-  return "https://source.unsplash.com/" + resolution;
+  return "https://source.unsplash.com/" + loadResolution() + "/?" + loadQuery();
 }
 
 function loadInterval() {
@@ -22,4 +18,12 @@ function loadResolution() {
   return resolution;
 }
 
-export { loadImgUrl, loadInterval, loadResolution };
+function loadQuery() {
+  let query = localStorage.getItem("query");
+  if (query === null) {
+    query = "";
+  }
+  return query;
+}
+
+export { loadImgUrl, loadInterval, loadResolution, loadQuery };

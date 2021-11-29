@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Slider, Input, Button, Select, Row, Col, message } from "antd";
 import "./Panel.css";
-import { loadInterval, loadResolution } from "./util";
+import { loadInterval, loadResolution, loadQuery } from "./util";
 
 function Panel(props) {
   const { onClosePanel } = props;
@@ -65,6 +65,14 @@ function Panel(props) {
               <Select.Option value="2560x1600">2560 x 1600</Select.Option>
             </Select.OptGroup>
           </Select>
+        </Form.Item>
+        <Form.Item name="query" label="Search">
+          <Select
+            mode="tags"
+            placeholder={"Input and Enter"}
+            tokenSeparators={[","]}
+            defaultValue={loadQuery() === "" ? [] : loadQuery().split(",")}
+          ></Select>
         </Form.Item>
         <Form.Item name="interval" label="Interval">
           <Slider
