@@ -8,8 +8,11 @@ Randomly display pictures from unsplash.
 Use `Shift-Command-F (Mac)` or `F11 (Win)` to get better experience in Fullscreen.
 
 Features
-- Preload pictures
-- Customize resolution & interval
+- Preload Pictures
+- Slide Animations
+- Customize Search
+- Customize Resolution
+- Customize Interval
 
 ## Develop
 
