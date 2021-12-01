@@ -1,5 +1,34 @@
 function loadImgUrl() {
-  return "https://source.unsplash.com/" + loadResolution() + "/?" + loadQuery();
+  const resolution = loadResolution();
+  const query = `? + ${loadQuery()}`;
+  return "https://source.unsplash.com/" + resolution + query;
+}
+
+function preloadImg(index) {
+  const imgUrl = loadImgUrl();
+  fetch(imgUrl)
+    .then((response) => {
+      return response.blob();
+    })
+    .then((myBlob) => {
+      const localUrl = URL.createObjectURL(myBlob);
+      localStorage.setItem(index, localUrl);
+      console.log(`Picture loaded as ${localUrl}`);
+    })
+    .catch(() => {
+      localStorage.setItem(index, imgUrl);
+    });
+}
+
+function loadFirstPicture() {
+  return fetch(loadImgUrl())
+    .then((response) => {
+      return response.blob();
+    })
+    .then((myBlob) => {
+      const localUrl = URL.createObjectURL(myBlob);
+      localStorage.setItem(0, localUrl);
+    });
 }
 
 function loadInterval() {
@@ -26,4 +55,20 @@ function loadQuery() {
   return query;
 }
 
-export { loadImgUrl, loadInterval, loadResolution, loadQuery };
+function loadAnimation() {
+  let animation = localStorage.getItem("animation");
+  if (animation === null) {
+    animation = "animate__fadeIn";
+  }
+  return animation;
+}
+
+export {
+  loadFirstPicture,
+  loadImgUrl,
+  preloadImg,
+  loadInterval,
+  loadResolution,
+  loadQuery,
+  loadAnimation,
+};

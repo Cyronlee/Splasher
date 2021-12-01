@@ -1,14 +1,6 @@
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  img {
-    animation: fadein 5s;
-  }
+img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }

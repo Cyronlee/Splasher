@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Gallery.css";
 import "./util";
-import { loadImgUrl, loadInterval } from "./util";
+import { loadImgUrl, preloadImg, loadInterval, loadAnimation } from "./util";
 
 function Gallery(props) {
   const [index, setIndex] = useState(0);
@@ -22,30 +22,25 @@ function Gallery(props) {
     <>
       {index === 0 ? (
         <div>
-          <img src={loadImgUrl()} alt="0"></img>
+          <img
+            className={"animate__animated " + loadAnimation()}
+            src={localStorage.getItem(0)}
+            alt="first"
+          ></img>
         </div>
       ) : (
         <div>
-          <img src={localStorage.getItem(index)} alt={index}></img>
+          <img src={localStorage.getItem(index - 1)} alt="prev"></img>
+          <img
+            key={index}
+            className={"animate__animated " + loadAnimation()}
+            src={localStorage.getItem(index)}
+            alt="next"
+          ></img>
         </div>
       )}
     </>
   );
-}
-
-function preloadImg(index) {
-  const imgUrl = loadImgUrl();
-  console.log("Loading img " + imgUrl);
-  fetch(imgUrl)
-    .then((response) => {
-      return response.blob();
-    })
-    .then((myBlob) => {
-      localStorage.setItem(index, URL.createObjectURL(myBlob));
-    })
-    .catch(() => {
-      localStorage.setItem(index, imgUrl);
-    });
 }
 
 export default Gallery;

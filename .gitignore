@@ -22,3 +22,4 @@ yarn-error.log*
 build/static
 build/favicon.ico
 build/asset-manifest.json
+build
